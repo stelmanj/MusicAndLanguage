@@ -1,7 +1,7 @@
 ---
 title: "Analysis of Audio and Lyric Variation Metrics"
 author: "Julia Stelman"
-date: "3/22/2020"
+date: "3/29/2020"
 output:
   pdf_document: default
   html_document: default
@@ -273,14 +273,6 @@ For the more detail on how spread metrics of Key were calculated, see the Append
 The first of the following tables contains the standard deviation of each feature for each individual language. The second table replaces the standard deviations with their ranks. 
 
 ```{r, message=FALSE, warning=FALSE}
-# Rank sum test of standard deviations
-
-# make the matrix of "data"
-sds <- esinw_df %>% select(-sid, -Tokens, -Types, -key) %>%
-  group_by(lang) %>% summarise_all(sd) %>% ungroup() 
-```
-
-```{r, message=FALSE, warning=FALSE}
 # turn the 0-11 key variable into 12 bernoull variables with 20 observations each
 dummies <- esinw_df[order(esinw_df$lang),] %>% select(key) 
 
@@ -288,6 +280,18 @@ dummies <- esinw_df[order(esinw_df$lang),] %>% select(key)
 dum.levels <- levels(factor(unlist(dummies)))
 key <- lapply(dummies, 
               function(x) table(sequence(nrow(dummies)), factor(x, levels = dum.levels)))$key
+```
+
+Step 1: Calculate the standard deviation for each of the nine features for each of the five individual languages.
+
+```{r, message=FALSE, warning=FALSE}
+# Rank sum test of standard deviations
+# 1. make the matrix of "data"
+
+# add a column for widespokenness to the "data" matrix of standard deviations
+sds <- esinw_df %>% select(-sid, -Tokens, -Types) %>%
+  group_by(lang) %>% summarise_all(sd) %>% ungroup() %>%
+  mutate(is_widely_spoken = ifelse(lang %in% c('en','es'), T, F))
 
 # use a different method for key, as it's a not actually a numeric variable.
 # for each language, make a binary vector for each of the 12 possible values, 
@@ -302,15 +306,6 @@ key_sds <- sapply(0:4,function(c){
 
 # store that in the key column of the standard devation data frame
 sds$key <- key_sds
-```
-
-Step 1: Calculate the standard deviation for each of the nine features for each of the five individual languages.
-
-```{r, message=FALSE, warning=FALSE}
-# add a column for widespokenness to the "data" matrix of standard deviations
-sds <- esinw_df %>% select(-sid, -Tokens, -Types) %>%
-  group_by(lang) %>% summarise_all(sd) %>% ungroup() %>%
-  mutate(is_widely_spoken = ifelse(lang %in% c('en','es'), T, F))
 
 # show the standard deviations
 knitr::kable(sds %>% 
@@ -413,7 +408,7 @@ Alternative Hypothesis: The features of music written in more widely spoken lang
 wilcox.test(rank_sd ~ cat, data = wilcox_df, alternative = "two.sided")
 ```
 
-As 0.513 is a very large p-value, it seems there is not evidence of a unidirectional relationship between varied-ness within audio/ lyric features and how widely spoken a language is. Or at least there is not evidence of such a relationship that is detectable on the standard deviation level. 
+As 0.401 is a very large p-value, it seems there is not evidence of a unidirectional relationship between varied-ness within audio/ lyric features and how widely spoken a language is. Or at least there is not evidence of such a relationship that is detectable on the standard deviation level. 
 
 #### IQR Rank Sum test
 
