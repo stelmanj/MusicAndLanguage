@@ -68,7 +68,7 @@ rm(Id_ids_all)
 
 # make a data frame from the songs selected
 esinw_df <- subset(x = dat, select = names(dat),
-                   subset = doc_id %in% c(
+                   subset = sid %in% c(
                      En_ids, eS_ids, Id_ids, Nl_ids, sW_ids))
 
 # save separate data frames for each langauge
