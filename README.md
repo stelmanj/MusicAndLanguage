@@ -3,7 +3,7 @@ Exploring connections between audio features and lyric language in music.
 
 ### Abstract
 
-This project is a study of underlying correlation between lyric language, various audio features in music, and connections between linguistic families of language that manifest in music. Incorporating data from several sources and tools from several python and R packages and APIs (detailed in the next paragraph), the project involves language recognition, text processing, hypothesis testing, and data visualization. 
+This project is a study of underlying correlation between lyric language, various audio features in music, and widespokenness of lyric language that manifest in music. Incorporating data from several sources and tools from several python and R packages and APIs (detailed in the next paragraph), the project involves language recognition, text processing, hypothesis testing, and data visualization. 
 
 ### Data
 
