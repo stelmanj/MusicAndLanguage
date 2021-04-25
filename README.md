@@ -3,11 +3,11 @@ Exploring connections between audio features and lyric language in music.
 
 ### Abstract
 
-This project is a study of underlying correlation between lyric language, various audio features in music, and connections between linguistic families of language that manifest in music. Incorporating data from the several sources and tools from several python and R packages and APIs (detailed in the next paragraph), the project involves language recognition, text processing, hypothesis testing, and data visualization. 
+This project is a study of underlying correlation between lyric language, various audio features in music, and connections between linguistic families of language that manifest in music. Incorporating data from several sources and tools from several python and R packages and APIs (detailed in the next paragraph), the project involves language recognition, text processing, hypothesis testing, and data visualization. 
 
 ### Data
 
-After webscraping the metadata for four over thousand songs in over forty different languages, a 100-song subset, spanning 5 different languages, was chosen for this study. With help from the Spotify Web API (for audio feature collection), Musixmatch API (for lyric collection), and the python port of Google's language-detection library, available on Github, I was able to begin exploring the connections between lyric language and audio features in music. My list of songs came from published playlists on Spotify by the user *The Sounds of Spotify*. This user does a lot of really neat music data mapping projects, and shares them on his site: http://everynoise.com. 
+After webscraping the metadata for over four thousand songs in over forty different languages, a 100-song subset, spanning 5 different languages, was chosen for this study. With help from the Spotify Web API (for audio feature collection), the Musixmatch API (for lyric collection), and the python port of Google's language-detection library, available on Github, I was able to begin exploring the connections between lyric language and audio features in music. My list of songs came from playlists on Spotify published by the user *The Sounds of Spotify*. This user does a lot of really neat music data mapping projects, and shares them on his site: http://everynoise.com. 
 
 ### Contents:
 
