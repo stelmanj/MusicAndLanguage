@@ -7,7 +7,7 @@ This project is a study of underlying correlation between lyric language, variou
 
 ### Data
 
-After webscraping the metadata for over four thousand songs in over forty different languages, a 100-song subset, spanning 5 different languages, was chosen for this study. With help from the Spotify Web API (for audio feature collection), the Musixmatch API (for lyric collection), and the python port of Google's language-detection library, available on Github, I was able to begin exploring the connections between lyric language and audio features in music. My list of songs came from playlists on Spotify published by the user *The Sounds of Spotify*. This user does a lot of really neat music data mapping projects, and shares them on his site: http://everynoise.com. 
+After webscraping the metadata for over four thousand songs in over forty different languages, a 100-song subset, spanning 5 different languages, was chosen for this study. With help from the Spotify Web API (for audio feature collection), the Musixmatch API (for lyric collection), and the python port of Google's language-detection library, available on Github, I was able to begin exploring the connections between lyric language and audio features in music. My list of songs came from playlists on Spotify published by the user *The Sounds of Spotify* (aka Glenn McDonald). This user does a lot of really neat music data mapping projects, and shares them on his site: http://everynoise.com. 
 
 ### Contents:
 
